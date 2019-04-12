@@ -1,4 +1,4 @@
-package show;
+package com.basis.java8.show;
 
 import com.basis.java8.filter.Apple;
 import org.junit.Test;
@@ -42,8 +42,6 @@ public class ShowTime {
         list.sort((a, b) -> a.weight - b.weight);
         list.sort(Comparator.comparing(Orange::getWeight));
         list.sort(Comparator.comparingInt(a -> a.weight));
-
-
     }
 
     @Test
