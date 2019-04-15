@@ -2,9 +2,11 @@ package com.basis.java8.buildstream;
 
 import org.junit.Test;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
+import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.function.IntSupplier;
@@ -83,10 +85,18 @@ public class Building {
 
     @Test
     public void f1() throws IOException {
-        Files.lines(Paths.get("D:\\IdeaProjects\\Training_Basis\\src\\main\\resources\\chap5\\data.txt"), Charset.defaultCharset())
+        Files.lines(Paths.get(new File(Building.class.getResource("/chap5/data.txt").getPath()).toString()), Charset.defaultCharset())
                 .flatMap(line -> Arrays.stream(line.split(" ")))
                 .distinct()
                 .forEach(System.out::println);
 
     }
+@Test
+public void f94(){
+    File file = new File(Building.class.getResource("/chap5/data.txt").getPath());
+    Path path = file.toPath();
+    System.out.println(path);
+
+}
+
 }
