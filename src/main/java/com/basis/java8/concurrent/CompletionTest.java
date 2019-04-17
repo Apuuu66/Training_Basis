@@ -24,14 +24,6 @@ public class CompletionTest {
             new Shop("GuangTouqiang")
     );
 
-    public void randomDealy() {
-        int delay = 500 + random.nextInt(2000);
-        try {
-            Thread.sleep(delay);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-    }
 
     public Stream<CompletableFuture<String>> findPricesStream(String product) {
         ExecutorService executor = Executors.newFixedThreadPool(shops.size(), (r) -> {
