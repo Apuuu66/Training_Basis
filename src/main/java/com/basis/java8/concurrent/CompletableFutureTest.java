@@ -1,4 +1,4 @@
-package com.basis.java8.concurrent.v1;
+package com.basis.java8.concurrent;
 
 import org.junit.Test;
 

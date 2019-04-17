@@ -24,7 +24,6 @@ public class CompletionTest {
             new Shop("GuangTouqiang")
     );
 
-
     public Stream<CompletableFuture<String>> findPricesStream(String product) {
         ExecutorService executor = Executors.newFixedThreadPool(shops.size(), (r) -> {
                     Thread thread = new Thread(r);

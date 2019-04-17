@@ -13,6 +13,7 @@ public class Util {
 
     public static void delay() {
         int delay = 500 + new Random().nextInt(2000);
+//        int delay = 500;
         try {
             Thread.sleep(delay);
         } catch (InterruptedException e) {
