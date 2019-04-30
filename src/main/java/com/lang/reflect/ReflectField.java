@@ -1,0 +1,46 @@
+package com.lang.reflect;
+
+import java.lang.reflect.Field;
+
+/**
+ * Created by zejian on 2017/5/1.
+ * Blog : http://blog.csdn.net/javazejian [原文地址,请尊重原创]
+ */
+public class ReflectField {
+
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchFieldException {
+        Class<?> clazz = Class.forName("com.lang.reflect.Student");
+        //获取指定字段名称的Field类,注意字段修饰符必须为public而且存在该字段,
+        // 否则抛NoSuchFieldException
+        Field field = clazz.getField("age");
+        System.out.println("field:"+field);
+
+        //获取所有修饰符为public的字段,包含父类字段,注意修饰符为public才会获取
+        Field fields[] = clazz.getFields();
+        for (Field f:fields) {
+            System.out.println("f:"+f.getDeclaringClass());
+        }
+
+        System.out.println("================getDeclaredFields====================");
+        //获取当前类所字段(包含private字段),注意不包含父类的字段
+        Field fields2[] = clazz.getDeclaredFields();
+        for (Field f:fields2) {
+            System.out.println("f2:"+f.getDeclaringClass());
+        }
+        //获取指定字段名称的Field类,可以是任意修饰符的自动,注意不包含父类的字段
+        Field field2 = clazz.getDeclaredField("desc");
+        System.out.println("field2:"+field2);
+    }
+    /**
+     输出结果:
+     field:public int com.lang.reflect.Person.age
+     f:class com.lang.reflect.Student
+     f:class com.lang.reflect.Person
+     f:class com.lang.reflect.Person
+     ================getDeclaredFields====================
+     f2:class com.lang.reflect.Student
+     f2:class com.lang.reflect.Student
+     field2:public java.lang.String com.lang.reflect.Student.desc
+     */
+}
+
